@@ -25,4 +25,18 @@ describe('App', () => {
       'Hello, UnitTesting'
     );
   });
+
+  it("Should Have userName && is === 'Mena'", () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    expect(app.userName).toBeDefined();
+    expect(app.userName).toBe('Mena');
+  });
+
+  it('Should render userName in HTML', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    let componentHTML: HTMLElement = fixture.nativeElement;
+    expect(componentHTML.querySelector('h2')?.textContent).toContain('Mena');
+  });
 });
